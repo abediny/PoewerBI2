@@ -1,18 +1,18 @@
-1. Dashboard Objective
+# 1. Dashboard Objective
 Provide executives with:
 •	Revenue performance 
 •	Growth trends 
 •	Customer & product insights 
 •	Early signals (decline, concentration risk, seasonality) 
 ________________________________________
-2. Data Model 
+# 2. Data Model 
 Fact: fact_sales 
 •	Dimensions: dim_customers, dim_products, dim_dates 
 Ensure:
 •	Single direction relationships (Dim → Fact) 
 •	Date table marked properly 
 ________________________________________
-Report Pages (Executive Flow)
+## Report Pages (Executive Flow)
 Page 1: Executive Overview (Main Page)
  KPI Cards (Top Row)
 •	Total Sales  (we discussed )
@@ -48,7 +48,7 @@ TOPN(1, VALUES(dim_products[Category]), [Total Sales])
 Display:
 "Electronics contributes the highest revenue this period."
 ________________________________________
-Page 2: Customer Insights
+## Page 2: Customer Insights
 KPIs
 •	Total Customers 
 •	Revenue per Customer 
@@ -65,7 +65,7 @@ ________________________________________
 Customer Geography
 •	Map by City 
 ________________________________________
-Page 3: Product Performance
+## Page 3: Product Performance
 Top Products
 •	Bar chart (Top 10) 
 •	ProductName vs Sales 
@@ -80,7 +80,7 @@ o	Y: Quantity
 o	Size: SalesAmount 
 This is powerful for execs (value vs volume view)
 ________________________________________
-Page 4: Trends & Forecasting
+## Page 4: Trends & Forecasting
 Time Intelligence
 •	YTD Sales 
 •	MTD Sales 
@@ -92,7 +92,7 @@ ________________________________________
 Anomaly Detection
 •	Enable anomaly detection in line chart 
 ________________________________________
-4. Design Principles (Executive-Level) Layout
+# 4. Design Principles (Executive-Level) Layout
 •	Use grid structure 
 •	Keep top = KPIs, middle = trends, bottom = breakdowns 
 Colors
@@ -105,7 +105,7 @@ Typography
 White Space
 •	Don’t overcrowd (this is where most dashboards fail) 
 ________________________________________
-5. Interactivity
+# 5. Interactivity
 Slicers (Top Panel) – refer to the last week
 •	Year 
 •	Month 
@@ -120,7 +120,7 @@ Create a tooltip page showing:
 •	Mini trend 
 •	Customer contribution 
 ________________________________________
-6. Executive Insights Layer (What makes this “senior”)
+# 6. Executive Insights Layer (What makes this “senior”)
 Add calculated insights:
 •	% contribution by top 10 customers 
 •	Category concentration risk 
@@ -132,7 +132,7 @@ DIVIDE(
     [Total Sales]
 )
 ________________________________________
-7. What Will Make This Stand Out (Very Important)
+# 7. What Will Make This Stand Out (Very Important)
 Most dashboards stop at visuals. To elevate this:
 Add narrative
 Use a text box:
