@@ -1,4 +1,4 @@
- 1. Dashboard Objective
+1. Dashboard Objective
 Provide executives with:
 •	Revenue performance 
 •	Growth trends 
@@ -21,13 +21,9 @@ Page 1: Executive Overview (Main Page)
 •	YoY Growth % 
 DAX:
 Total Sales = SUM(fact_sales[SalesAmount])
-
 Total Orders = COUNT(fact_sales[SalesKey])
-
 Avg Order Value = DIVIDE([Total Sales], [Total Orders])
-
 Sales LY = CALCULATE([Total Sales], SAMEPERIODLASTYEAR(dim_dates[Date]))
-
 YoY Growth % = DIVIDE([Total Sales] - [Sales LY], [Sales LY])
 ________________________________________
 Sales Trend 
@@ -63,7 +59,7 @@ Top Customers
 o	CustomerName 
 o	Total Sales 
 ________________________________________
-📉 Customer Distribution
+Customer Distribution
 •	Histogram-style (group by revenue buckets) 
 ________________________________________
 Customer Geography
