@@ -1,131 +1,130 @@
 # 1. Dashboard Objective
-Provide executives with:
-•	Revenue performance 
-•	Growth trends 
-•	Customer & product insights 
-•	Early signals (decline, concentration risk, seasonality) 
+Provide executives with: <br/>
+•	Revenue performance <br/>
+•	Growth trends <br/>
+•	Customer & product insights <br/>
+•	Early signals (decline, concentration risk, seasonality) <br/>
 ________________________________________
 # 2. Data Model 
-Fact: fact_sales 
-•	Dimensions: dim_customers, dim_products, dim_dates 
-Ensure:
-•	Single direction relationships (Dim → Fact) 
-•	Date table marked properly 
+Fact: fact_sales <br/>
+•	Dimensions: dim_customers, dim_products, dim_dates <br/>
+Ensure:<br/>
+•	Single direction relationships (Dim → Fact) <br/>
+•	Date table marked properly <br/>
 ________________________________________
 ## Report Pages (Executive Flow)
-Page 1: Executive Overview (Main Page)
- KPI Cards (Top Row)
-•	Total Sales  (we discussed )
-•	Total Orders (COUNT of SalesKey) – we discussed last session
-•	Avg Order Value 
-•	YoY Growth % 
-DAX:
-Total Sales = SUM(fact_sales[SalesAmount])
-Total Orders = COUNT(fact_sales[SalesKey])
-Avg Order Value = DIVIDE([Total Sales], [Total Orders])
-Sales LY = CALCULATE([Total Sales], SAMEPERIODLASTYEAR(dim_dates[Date]))
+Page 1: Executive Overview (Main Page) <br/>
+ KPI Cards (Top Row) <br/>
+•	Total Sales  (we discussed ) <br/>
+•	Total Orders (COUNT of SalesKey) – we discussed last session <br/>
+•	Avg Order Value  <br/>
+•	YoY Growth % <br/> 
+DAX: <br/>
+Total Sales = SUM(fact_sales[SalesAmount])  <br/>
+Total Orders = COUNT(fact_sales[SalesKey]) <br/>
+Avg Order Value = DIVIDE([Total Sales], [Total Orders]) <br/>
+Sales LY = CALCULATE([Total Sales], SAMEPERIODLASTYEAR(dim_dates[Date])) <br/>
 YoY Growth % = DIVIDE([Total Sales] - [Sales LY], [Sales LY])
 ________________________________________
-Sales Trend 
-Line chart: 
-o	Axis: dim_dates[MonthName] (sorted by Month) 
-o	Legend: Year 
-o	Value: Total Sales 
+Sales Trend <br/>
+Line chart: <br/>
+o	Axis: dim_dates[MonthName] (sorted by Month) <br/>
+o	Legend: Year <br/>
+o	Value: Total Sales <br/>
 ________________________________________
-Sales by Category
-•	Donut / Bar chart 
-•	dim_products[Category] 
+Sales by Category<br/>
+•	Donut / Bar chart <br/>
+•	dim_products[Category] <br/>
 ________________________________________
-Sales by City
-•	Map visual 
-•	Size: Total Sales 
-•	Location: City 
+Sales by City<br/>
+•	Map visual <br/>
+•	Size: Total Sales <br/>
+•	Location: City <br/>
 ________________________________________
-Executive Insight Box (Text)
-Use dynamic measure like:
-Top Category = 
-TOPN(1, VALUES(dim_products[Category]), [Total Sales])
-Display:
-"Electronics contributes the highest revenue this period."
+Executive Insight Box (Text)<br/>
+Use dynamic measure like: <br/>
+Top Category = TOPN(1, VALUES(dim_products[Category]), [Total Sales]) <br/>
+Display:<br/>
+"Electronics contributes the highest revenue this period." <br/>
 ________________________________________
 ## Page 2: Customer Insights
-KPIs
-•	Total Customers 
-•	Revenue per Customer 
-•	Repeat Purchase Rate (if extended) 
+KPIs <br/>
+•	Total Customers  <br/>
+•	Revenue per Customer  <br/>
+•	Repeat Purchase Rate (if extended)  <br/>
 ________________________________________
-Top Customers
-•	Table: 
-o	CustomerName 
-o	Total Sales 
+Top Customers <br/>
+•	Table: <br/>
+o	CustomerName <br/>
+o	Total Sales <br/>
 ________________________________________
-Customer Distribution
-•	Histogram-style (group by revenue buckets) 
+Customer Distribution <br/>
+•	Histogram-style (group by revenue buckets)  <br/>
 ________________________________________
-Customer Geography
-•	Map by City 
+Customer Geography <br/>
+•	Map by City  <br/>
 ________________________________________
 ## Page 3: Product Performance
-Top Products
-•	Bar chart (Top 10) 
-•	ProductName vs Sales 
+Top Products <br/>
+•	Bar chart (Top 10)  <br/>
+•	ProductName vs Sales  <br/>
 ________________________________________
-Category Performance Over Time
-•	Stacked area chart 
+Category Performance Over Time <br/>
+•	Stacked area chart  <br/>
 ________________________________________
-Price vs Quantity
-•	Scatter plot: 
-o	X: UnitPrice 
-o	Y: Quantity 
-o	Size: SalesAmount 
-This is powerful for execs (value vs volume view)
+Price vs Quantity<br/>
+•	Scatter plot:  <br/>
+o	X: UnitPrice  <br/>
+o	Y: Quantity <br/>
+o	Size: SalesAmount  <br/>
+This is powerful for execs (value vs volume view) <br/>
 ________________________________________
 ## Page 4: Trends & Forecasting
-Time Intelligence
-•	YTD Sales 
-•	MTD Sales 
-•	QoQ Growth 
+Time Intelligence <br/>
+•	YTD Sales <br/>
+•	MTD Sales <br/>
+•	QoQ Growth <br/>
 ________________________________________
-Forecast
-•	Built-in Power BI forecast on sales trend 
+Forecast<br/>
+•	Built-in Power BI forecast on sales trend <br/>
 ________________________________________
-Anomaly Detection
-•	Enable anomaly detection in line chart 
+Anomaly Detection <br/>
+•	Enable anomaly detection in line chart <br/>
 ________________________________________
 # 4. Design Principles (Executive-Level) Layout
-•	Use grid structure 
-•	Keep top = KPIs, middle = trends, bottom = breakdowns 
-Colors
-•	1 primary (e.g., blue) 
-•	1 accent (orange for highlights) 
-•	Neutral background 
-Typography
-•	Large numbers for KPIs 
-•	Minimal labels 
-White Space
-•	Don’t overcrowd (this is where most dashboards fail) 
+•	Use grid structure <br/>
+•	Keep top = KPIs, middle = trends, bottom = breakdowns <br/>
+Colors<br/>
+•	1 primary (e.g., blue) <br/>
+•	1 accent (orange for highlights) <br/>
+•	Neutral background <br/>
+Typography<br/>
+•	Large numbers for KPIs <br/>
+•	Minimal labels <br/>
+White Space<br/>
+•	Don’t overcrowd (this is where most dashboards fail) <br/>
 ________________________________________
 # 5. Interactivity
-Slicers (Top Panel) – refer to the last week
-•	Year 
-•	Month 
-•	Category 
+Slicers (Top Panel) – refer to the last week<br/>
+•	Year <br/>
+•	Month <br/>
+•	Category <br/>
 ________________________________________
-Drill-through
-•	From Overview → Customer Details 
-•	From Category → Product Breakdown 
+Drill-through <br/>
+•	From Overview → Customer Details <br/>
+•	From Category → Product Breakdown <br/>
 ________________________________________
-Tooltips Page
-Create a tooltip page showing:
-•	Mini trend 
-•	Customer contribution 
+Tooltips Page<br/>
+Create a tooltip page showing:<br/>
+•	Mini trend <br/>
+•	Customer contribution <br/>
 ________________________________________
 # 6. Executive Insights Layer (What makes this “senior”)
-Add calculated insights:
-•	% contribution by top 10 customers 
-•	Category concentration risk 
-•	Growth vs decline segments 
-Example:
+Add calculated insights:<br/>
+•	% contribution by top 10 customers <br/>
+•	Category concentration risk <br/>
+•	Growth vs decline segments <br/>
+Example:<br/>
 Top 10 Customers Sales % =
 DIVIDE(
     CALCULATE([Total Sales], TOPN(10, VALUES(dim_customers[CustomerKey]), [Total Sales])),
@@ -133,14 +132,14 @@ DIVIDE(
 )
 ________________________________________
 # 7. What Will Make This Stand Out (Very Important)
-Most dashboards stop at visuals. To elevate this:
-Add narrative
-Use a text box:
-•	“Sales increased by 12% YoY driven by Electronics” 
-Add alerts mindset
-•	Highlight negative growth in red 
-•	Add arrows/icons 
-Focus on decisions
-Every visual should answer:
-“What action should leadership take?”
+Most dashboards stop at visuals. To elevate this:<br/>
+Add narrative<br/>
+Use a text box:<br/>
+•	“Sales increased by 12% YoY driven by Electronics” <br/>
+Add alerts mindset<br/>
+•	Highlight negative growth in red <br/>
+•	Add arrows/icons <br/>
+Focus on decisions<br/>
+Every visual should answer:<br/>
+“What action should leadership take?”<br/>
 
