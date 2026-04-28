@@ -92,8 +92,7 @@ ________________________________________
 Anomaly Detection
 •	Enable anomaly detection in line chart 
 ________________________________________
-4. Design Principles (Executive-Level)
- Layout
+4. Design Principles (Executive-Level) Layout
 •	Use grid structure 
 •	Keep top = KPIs, middle = trends, bottom = breakdowns 
 Colors
@@ -106,7 +105,7 @@ Typography
 White Space
 •	Don’t overcrowd (this is where most dashboards fail) 
 ________________________________________
- 5. Interactivity
+5. Interactivity
 Slicers (Top Panel) – refer to the last week
 •	Year 
 •	Month 
